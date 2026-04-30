@@ -25,6 +25,28 @@
     /reach out/i, /get in touch/i, /hire/i, /collaborate/i, /work together/i,
   ];
 
+  const ARTATVA_RX = /artatva|stealth|booking marketplace|dbs|pli|compliance.first|managed marketplace/i;
+
+  const ARTATVA_FOLLOWUPS = [
+    "What problem does Artatva solve?",
+    "Who is Artatva for?",
+    "How does the AI-native ops layer work?",
+    "What's on the roadmap?",
+    "Why is it the UK's first managed marketplace?",
+    "How is it different from Encore or GigSalad?",
+    "What's the tech stack?",
+    "When does Phase 2 ship?",
+  ];
+
+  function pickFollowups(n = 3) {
+    const pool = ARTATVA_FOLLOWUPS.slice();
+    const out = [];
+    while (out.length < n && pool.length) {
+      out.push(pool.splice(Math.floor(Math.random() * pool.length), 1)[0]);
+    }
+    return out;
+  }
+
   const SYSTEM_PROMPT = `You are an AI assistant speaking on behalf of Mohit Kumar. You answer questions about him in a warm, witty, dryly British tone. Think articulate Londoner: understated, occasionally cheeky, never sycophantic, always concise.
 
 CRITICAL STYLE RULES:
@@ -171,6 +193,29 @@ End cleanly. No trailing follow-up questions unless the user asked for suggestio
     messagesEl.scrollTop = messagesEl.scrollHeight;
   }
 
+  function appendFollowups(questions) {
+    if (!questions || !questions.length) return;
+    const wrap = document.createElement('div');
+    wrap.className = 'chat-msg chat-msg--bot';
+    const bubble = document.createElement('div');
+    bubble.className = 'chat-msg__bubble chat-followups-bubble';
+    bubble.innerHTML = '<p style="margin:0 0 8px;font-size:0.82rem;opacity:0.75;">Want to dig deeper?</p>';
+    const row = document.createElement('div');
+    row.className = 'chat-followups';
+    questions.forEach(q => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'chat-suggestion';
+      b.textContent = q;
+      b.addEventListener('click', () => { wrap.remove(); send(q); });
+      row.appendChild(b);
+    });
+    bubble.appendChild(row);
+    wrap.appendChild(bubble);
+    messagesEl.appendChild(wrap);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
   function notifyMohit(userText) {
     if (notified.sent) return;
     const url = config.EMAIL_WEBHOOK;
@@ -259,8 +304,12 @@ End cleanly. No trailing follow-up questions unless the user asked for suggestio
     appendMessage('bot', reply);
     history.push({ role: 'assistant', content: reply });
 
-    if (highIntent && config.CALENDLY_LINK) {
+    const isArtatva = ARTATVA_RX.test(userText) || ARTATVA_RX.test(reply);
+    if ((highIntent || isArtatva) && config.CALENDLY_LINK) {
       setTimeout(appendCTA, 250);
+    }
+    if (isArtatva) {
+      setTimeout(() => appendFollowups(pickFollowups(3)), 400);
     }
 
     input.disabled = false;

@@ -2162,6 +2162,15 @@ img { max-width: 100%; display: block; }
 
 @media (max-width: 600px) {
   .chat-nudge { width: calc(100vw - 56px); right: 20px; bottom: 90px; }
+  .artatva { padding: 48px 0 64px; }
+  .artatva__hero { margin-bottom: 36px; }
+  .artatva-rotor { width: min(380px, 78vw); margin-bottom: 4px; }
+  .artatva__title { margin-bottom: 8px; font-size: clamp(2.4rem, 7vw, 4rem); }
+  .artatva__tagline { font-size: 1.1rem; }
+  .artatva__badge { margin-bottom: 16px; padding: 6px 14px; font-size: 0.7rem; }
+  .artatva__why { margin-bottom: 40px; }
+  .chat-followups { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chat-followups button { font-size: 0.8rem; }
 }
 
 /* Artatva animated logo (inline rotor) */
