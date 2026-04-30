@@ -315,28 +315,61 @@ document.querySelectorAll('.project-card').forEach(card => {
 (function initNudge() {
   const nudge = document.getElementById('chatNudge');
   const nudgeClose = document.getElementById('chatNudgeClose');
+  const nudgeTitle = document.getElementById('chatNudgeTitle');
+  const nudgeText = document.getElementById('chatNudgeText');
   const fab = document.getElementById('chatFab');
   const panel = document.getElementById('chatPanel');
   if (!nudge || !fab || !panel) return;
 
   const STORAGE_KEY = 'mk_nudge_dismissed';
-  const SHOW_AFTER_MS = 7000;
-  const AUTO_HIDE_AFTER_MS = 25000;
+  const SHOW_AFTER_MS = 3500;
+  const AUTO_HIDE_AFTER_MS = 12000;
+  const REAPPEAR_INTERVAL_MS = 25000;
+
+  const PROMPTS = [
+    { title: "Hi, I'm Mohit's AI 👋", text: "Ask me anything about his work, projects, or Artatva." },
+    { title: "Want the 30-second pitch?", text: "Ask: \"What does Mohit actually do?\" — I'll keep it punchy." },
+    { title: "Curious about Artatva?", text: "Why he's building it, what's launched, where it's headed — try me." },
+    { title: "Hiring or partnering?", text: "Ask about his AI work, MBA, or how to book a call." },
+    { title: "Got a tricky AI problem?", text: "Tell me about it. He's shipped 100+ agents in production." },
+  ];
+  let promptIdx = 0;
+  let dismissedByUser = false;
+  let hideTimer, reappearTimer;
+
+  function setPrompt(i) {
+    const p = PROMPTS[i % PROMPTS.length];
+    nudgeTitle.textContent = p.title;
+    nudgeText.textContent = p.text;
+  }
 
   function show() {
+    if (dismissedByUser) return;
     if (sessionStorage.getItem(STORAGE_KEY)) return;
     if (panel.classList.contains('chat-panel--open')) return;
+    setPrompt(promptIdx);
     nudge.classList.add('chat-nudge--show');
     nudge.setAttribute('aria-hidden', 'false');
-    setTimeout(hide, AUTO_HIDE_AFTER_MS);
+    fab.classList.add('chat-fab--attention');
+    clearTimeout(hideTimer);
+    hideTimer = setTimeout(autoHide, AUTO_HIDE_AFTER_MS);
   }
-  function hide() {
+  function autoHide() {
     nudge.classList.remove('chat-nudge--show');
     nudge.setAttribute('aria-hidden', 'true');
+    fab.classList.remove('chat-fab--attention');
+    promptIdx = (promptIdx + 1) % PROMPTS.length;
+    clearTimeout(reappearTimer);
+    if (!dismissedByUser) reappearTimer = setTimeout(show, REAPPEAR_INTERVAL_MS);
   }
   function dismiss() {
+    dismissedByUser = true;
     sessionStorage.setItem(STORAGE_KEY, '1');
-    hide();
+    nudge.classList.remove('chat-nudge--show');
+    nudge.setAttribute('aria-hidden', 'true');
+    fab.classList.remove('chat-fab--attention');
+    clearTimeout(hideTimer);
+    clearTimeout(reappearTimer);
   }
 
   setTimeout(show, SHOW_AFTER_MS);
