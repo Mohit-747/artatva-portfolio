@@ -7,10 +7,17 @@
   <meta name="description" content="Portfolio of Mohit Kumar. Generative AI Engineer with 5 years of experience, MBA candidate at Leeds University Business School." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Newsreader:wght@500&family=Tiro+Devanagari+Sanskrit&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Newsreader:wght@500&display=swap" rel="stylesheet" />
+  <!-- Devanagari for Artatva logo: load Tiro Devanagari Sanskrit with only the glyphs we use, forcing a tight subset and a blocking display so SVG text does not render with the iOS system fallback -->
+  <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Sanskrit&text=%E0%A4%A4%E0%A4%A4%E0%A5%8D%E0%A4%A4%E0%A5%8D%E0%A4%B5&display=block" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* Hidden preloader to force the browser to actually fetch the Devanagari woff2 immediately */
+    .devanagari-preload { position: absolute; left: -9999px; top: -9999px; font-family: 'Tiro Devanagari Sanskrit', serif; font-size: 1px; }
+  </style>
 </head>
 <body>
+  <span class="devanagari-preload" aria-hidden="true">तत्त्व</span>
   <!-- Cursor glow -->
   <div class="cursor-glow" id="cursorGlow"></div>
 
@@ -721,5 +728,19 @@
   <script src="js/config.js"></script>
   <script src="js/main.js"></script>
   <script src="js/chat.js"></script>
+  <script>
+    // iOS Safari sometimes paints SVG <text> with the system Devanagari fallback before the
+    // Tiro Devanagari Sanskrit web font finishes loading. Once fonts are ready, force the
+    // back-face SVG to repaint by toggling a no-op attribute.
+    if (document.fonts && document.fonts.load) {
+      document.fonts.load('1em "Tiro Devanagari Sanskrit"').then(() => {
+        document.querySelectorAll('.artatva-rotor__face--back text').forEach(t => {
+          const ff = t.getAttribute('font-family');
+          t.setAttribute('font-family', ff + ' ');
+          requestAnimationFrame(() => t.setAttribute('font-family', ff));
+        });
+      }).catch(() => {});
+    }
+  </script>
 </body>
 </html>
