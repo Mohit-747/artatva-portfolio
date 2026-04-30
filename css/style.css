@@ -2210,6 +2210,7 @@ img { max-width: 100%; display: block; }
   margin: 0 auto 8px;
   border: 0;
   background: transparent;
+  transform: translateX(4%);
 }
 @media (max-width: 768px) {
   .artatva-rotor-frame { width: min(420px, 86vw); }
