@@ -500,3 +500,21 @@ document.querySelectorAll('.project-card').forEach(card => {
     );
   });
 })();
+
+// Rotating words animation
+(function initRotatingWords() {
+  const containers = document.querySelectorAll('.rotating-words');
+  containers.forEach((el) => {
+    const words = (el.dataset.words || '').split(',').map(w => w.trim()).filter(Boolean);
+    if (words.length < 2) return;
+    const wordEl = el.querySelector('.rotating-words__word');
+    let i = 0;
+    setInterval(() => {
+      i = (i + 1) % words.length;
+      wordEl.textContent = words[i];
+      wordEl.style.animation = 'none';
+      void wordEl.offsetWidth;
+      wordEl.style.animation = '';
+    }, 2000);
+  });
+})();
