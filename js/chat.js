@@ -179,12 +179,11 @@ End cleanly. No trailing follow-up questions unless the user asked for suggestio
   }
 
   async function callGroq(userText) {
-    const key = config.GROQ_API_KEY;
-    if (!key || key.startsWith('PASTE_')) {
-      return "The Groq API key has not been added yet. Drop it into js/config.js and we are off.";
+    const url = config.GROQ_PROXY_URL;
+    if (!url || url.startsWith('PASTE_')) {
+      return "The Groq proxy URL has not been set yet. Drop it into js/config.js and we are off.";
     }
     const model = config.GROQ_MODEL || 'llama-3.3-70b-versatile';
-    const url = 'https://api.groq.com/openai/v1/chat/completions';
 
     const messages = [
       { role: 'system', content: SYSTEM_PROMPT },
@@ -197,7 +196,6 @@ End cleanly. No trailing follow-up questions unless the user asked for suggestio
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${key}`,
         },
         body: JSON.stringify({
           model,

@@ -1,6 +1,7 @@
 // Paste your Groq API key here. Get one free at https://console.groq.com/keys
 window.MOHIT_CONFIG = {
-  GROQ_API_KEY: "PASTE_YOUR_GROQ_API_KEY_HERE",
+  // Groq calls go through a Cloudflare Worker proxy that holds the real key.
+  GROQ_PROXY_URL: "https://groq-proxy.mohit-bvcoe747.workers.dev",
   GROQ_MODEL: "llama-3.3-70b-versatile",
 
   // Calendly or Google Calendar booking link. Used for the "Book a call" CTA.
