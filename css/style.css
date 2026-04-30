@@ -2162,15 +2162,6 @@ img { max-width: 100%; display: block; }
 
 @media (max-width: 600px) {
   .chat-nudge { width: calc(100vw - 56px); right: 20px; bottom: 90px; }
-  .artatva { padding: 48px 0 64px; }
-  .artatva__hero { margin-bottom: 36px; }
-  .artatva-rotor { width: min(380px, 78vw); margin-bottom: 4px; }
-  .artatva__title { margin-bottom: 8px; font-size: clamp(2.4rem, 7vw, 4rem); }
-  .artatva__tagline { font-size: 1.1rem; }
-  .artatva__badge { margin-bottom: 16px; padding: 6px 14px; font-size: 0.7rem; }
-  .artatva__why { margin-bottom: 40px; }
-  .chat-followups { display: flex; flex-wrap: wrap; gap: 6px; }
-  .chat-followups button { font-size: 0.8rem; }
 }
 
 /* Artatva animated logo (inline rotor) */
@@ -2260,4 +2251,20 @@ img { max-width: 100%; display: block; }
   10%  { transform: translateY(0);    opacity: 1; }
   90%  { transform: translateY(0);    opacity: 1; }
   100% { transform: translateY(-60%); opacity: 0; }
+}
+
+/* Mobile overrides for Artatva section — placed last so they win over base rules */
+@media (max-width: 768px) {
+  .artatva { padding: 56px 0 72px; }
+  .artatva__hero { margin-bottom: 36px; }
+  .artatva-rotor { width: min(360px, 72vw); margin: 0 auto 4px; }
+  .artatva__title { margin-bottom: 8px; }
+  .artatva__tagline { font-size: 1.1rem; }
+  .artatva__badge { margin-bottom: 16px; padding: 6px 14px; font-size: 0.7rem; }
+  .artatva__why { margin-bottom: 40px; }
+  .chat-followups { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chat-followups .chat-suggestion { font-size: 0.78rem; }
+}
+@media (max-width: 420px) {
+  .artatva-rotor { width: min(300px, 80vw); }
 }
