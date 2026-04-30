@@ -2221,7 +2221,7 @@ img { max-width: 100%; display: block; }
 .rotating-words {
   position: relative;
   display: inline-grid;
-  grid-template-columns: auto;
+  grid-template-columns: minmax(0, auto);
   vertical-align: baseline;
   overflow: hidden;
   line-height: inherit;
@@ -2239,7 +2239,8 @@ img { max-width: 100%; display: block; }
 .rotating-words__word {
   color: #a5b4fc;
   text-shadow: 0 0 18px rgba(99, 102, 241, 0.45);
-  animation: rw-cycle 2s cubic-bezier(0.22, 1, 0.36, 1);
+  opacity: 0;
+  animation: rw-cycle 2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 .rotating-words--accent .rotating-words__word {
   color: #fcd34d;

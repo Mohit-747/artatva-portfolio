@@ -379,10 +379,12 @@ document.querySelectorAll('.project-card').forEach(card => {
     fab.click();
     dismiss();
   });
+  // Close button just hides current prompt and queues the next one — doesn't permanently dismiss.
   nudgeClose.addEventListener('click', (e) => {
     e.stopPropagation();
-    dismiss();
+    autoHide();
   });
+  // Permanently dismiss only when the chat panel actually opens.
   fab.addEventListener('click', dismiss);
 })();
 
@@ -540,14 +542,21 @@ document.querySelectorAll('.project-card').forEach(card => {
   containers.forEach((el) => {
     const words = (el.dataset.words || '').split(',').map(w => w.trim()).filter(Boolean);
     if (words.length < 2) return;
+    const sizer = el.querySelector('.rotating-words__sizer');
     const wordEl = el.querySelector('.rotating-words__word');
-    let i = 0;
-    setInterval(() => {
-      i = (i + 1) % words.length;
-      wordEl.textContent = words[i];
+    if (!sizer) return;
+    function setWord(text) {
+      sizer.textContent = text;
+      wordEl.textContent = text;
       wordEl.style.animation = 'none';
       void wordEl.offsetWidth;
       wordEl.style.animation = '';
+    }
+    let i = 0;
+    setWord(words[0]);
+    setInterval(() => {
+      i = (i + 1) % words.length;
+      setWord(words[i]);
     }, 2000);
   });
 })();
