@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohit Kumar - Resume</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <style>
+    /* ATS-friendly UK resume. A4. Single column. Plain text. */
+    @page { size: A4; margin: 14mm 14mm; }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+      background: #e9ecef;
+      color: #1a1a1a;
+      padding: 40px 0;
+    }
+
+    /* The visible "page" on screen mirrors A4 (210 x 297 mm) */
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      padding: 14mm 16mm;
+      margin: 0 auto;
+      background: #fff;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+      font-size: 10.25pt;
+      line-height: 1.42;
+      color: #111;
+    }
+
+    a { color: #1a4480; text-decoration: none; }
+
+    .toolbar {
+      max-width: 210mm;
+      margin: 0 auto 16px;
+      display: flex;
+      gap: 8px;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    .toolbar button {
+      background: #111827;
+      color: #fff;
+      border: none;
+      padding: 9px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: inherit;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s;
+    }
+    .toolbar button:hover { background: #374151; }
+    .toolbar button.secondary { background: transparent; color: #111827; border: 1px solid #d1d5db; }
+    .toolbar button.secondary:hover { background: #f3f4f6; }
+
+    /* Header */
+    .header {
+      border-bottom: 2px solid #111;
+      padding-bottom: 8px;
+      margin-bottom: 10px;
+    }
+    .header h1 {
+      font-size: 20pt;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      margin: 0 0 2px;
+    }
+    .header .subtitle {
+      font-size: 10.5pt;
+      font-weight: 600;
+      color: #333;
+      margin: 0 0 4px;
+      letter-spacing: 0.3px;
+    }
+    .header .contact {
+      font-size: 9.5pt;
+      color: #333;
+      line-height: 1.5;
+    }
+    .header .contact a { color: #333; }
+
+    h2 {
+      font-size: 11pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      margin: 12px 0 6px;
+      padding-bottom: 2px;
+      border-bottom: 1px solid #999;
+      color: #111;
+    }
+
+    h3 {
+      font-size: 10.25pt;
+      font-weight: 700;
+      margin: 6px 0 1px;
+    }
+
+    p { margin: 0 0 5px; }
+
+    ul {
+      margin: 3px 0 6px;
+      padding-left: 18px;
+    }
+
+    li { margin: 1px 0; }
+
+    .role-line {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin: 6px 0 1px;
+      gap: 12px;
+    }
+    .role-line .role {
+      font-weight: 700;
+      font-size: 10.25pt;
+    }
+    .role-line .date {
+      font-size: 9.5pt;
+      color: #555;
+      white-space: nowrap;
+    }
+    .meta-line {
+      display: flex;
+      justify-content: space-between;
+      font-size: 9.5pt;
+      font-style: italic;
+      color: #444;
+      margin-bottom: 3px;
+      gap: 12px;
+    }
+
+    .summary { margin-bottom: 4px; text-align: justify; }
+
+    .skills-row { margin: 0 0 3px; font-size: 9.85pt; }
+    .skills-row strong { color: #111; }
+
+    .project { margin-bottom: 5px; }
+    .project .pname { font-weight: 700; }
+    .project p { display: inline; }
+
+    .compact-edu .role-line { margin-top: 4px; }
+
+    @media print {
+      body { background: #fff; padding: 0; }
+      .toolbar { display: none; }
+      .page {
+        width: auto;
+        min-height: auto;
+        padding: 0;
+        margin: 0;
+        box-shadow: none;
+        background: transparent;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="toolbar">
+    <button id="downloadBtn" type="button">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download PDF
+    </button>
+    <button class="secondary" id="printBtn" type="button">Print</button>
+  </div>
+
+  <div class="page" id="resume">
+
+    <div class="header">
+      <h1>Mohit Kumar</h1>
+      <div class="subtitle">Generative AI Engineer | MBA Candidate, Leeds University Business School</div>
+      <div class="contact">
+        Leeds, United Kingdom &nbsp;&middot;&nbsp; +44 7899 255443 &nbsp;&middot;&nbsp;
+        <a href="mailto:mohit.xtreme1@gmail.com">mohit.xtreme1@gmail.com</a> &nbsp;&middot;&nbsp;
+        <a href="https://linkedin.com/in/Mohit747">linkedin.com/in/Mohit747</a> &nbsp;&middot;&nbsp;
+        <a href="https://github.com/Mohit-747">github.com/Mohit-747</a>
+      </div>
+    </div>
+
+    <h2>Professional Summary</h2>
+    <p class="summary">Generative AI Engineer with 5 years of experience designing and scaling production AI for UK and global enterprises, currently completing an MBA at Leeds University Business School (scholarship recipient). Specialised in Retrieval Augmented Generation (RAG), Large Language Models, Multi-Agent Systems and end-to-end automation. Proven delivery against measurable business outcomes including 45 percent latency reduction, 60 percent fewer manual queries and 100 plus hours of annual QA savings.</p>
+
+    <h2>Core Skills</h2>
+    <p class="skills-row"><strong>AI and ML:</strong> Generative AI, Retrieval Augmented Generation (RAG), Large Language Models, Multi-Agent Systems, Prompt Engineering, LangGraph, Machine Learning, NLP</p>
+    <p class="skills-row"><strong>Programming:</strong> Python, TypeScript, JavaScript, SQL, Next.js, React, FastAPI, Streamlit, Flask</p>
+    <p class="skills-row"><strong>Cloud and MLOps:</strong> Azure OpenAI, Azure Databricks, Azure AI Search, AWS (Lambda, CloudWatch), Docker, Git, CI/CD, Data Pipelines</p>
+    <p class="skills-row"><strong>Tools and Methods:</strong> Playwright, HuggingFace, Plotly, JIRA, Agile Delivery, Stakeholder Management, Cross-Functional Leadership</p>
+
+    <h2>Professional Experience</h2>
+
+    <div class="role-line">
+      <span class="role">Associate Data Scientist, Cognizant AI Studio</span>
+      <span class="date">October 2023 to August 2025</span>
+    </div>
+    <div class="meta-line"><span>London, United Kingdom</span></div>
+    <ul>
+      <li>Delivered Generative AI applications for UK clients including <strong>GSK</strong> and <strong>Merck</strong>, owning design through to production deployment.</li>
+      <li>Designed a scalable Retrieval Augmented Generation (RAG) framework, improving response latency by <strong>45 percent</strong>.</li>
+      <li>Integrated Azure OpenAI, Azure Databricks and Azure AI Search to enhance model accuracy and contextual retrieval.</li>
+      <li>Led a cross-functional team to deliver an automated API Test Case Builder, cutting QA workload by <strong>30 percent</strong> and saving <strong>100 plus hours</strong> per year.</li>
+    </ul>
+
+    <div class="role-line">
+      <span class="role">Data Analyst, Cognizant</span>
+      <span class="date">July 2021 to October 2023</span>
+    </div>
+    <div class="meta-line"><span>New Delhi, India</span></div>
+    <ul>
+      <li>Promoted from Intern to Analyst inside the first year for delivering high-impact data automation ahead of schedule.</li>
+      <li>Built a prompt-based document generator automating <strong>50 plus document types</strong>, significantly reducing manual production time.</li>
+      <li>Designed and optimised large-scale data pipelines using AWS Lambda and CloudWatch, improving reliability and observability.</li>
+    </ul>
+
+    <h2>Key Projects</h2>
+
+    <div class="project"><span class="pname">Mehtadology Consulting App.</span> <p>End-to-end agentic AI workflow automating the consulting delivery pipeline. Multi-agent architecture (Validator, Deck Producer, Quality Assurance) orchestrated by a Chief Agent. <em>Python, LangGraph, Generative AI.</em></p></div>
+
+    <div class="project"><span class="pname">Carbon Calculator, University of Leeds (LUBS Net Zero Command Center).</span> <p>Multi-agent carbon accounting dashboard. Six AI agents covering data ingestion, Scope 1 to 3 emissions (LCA, LCI, LCIA), scenario modelling, anomaly detection and recommendations. <em>Python, Streamlit, Plotly.</em></p></div>
+
+    <div class="project"><span class="pname">Studex (Google AI Studio).</span> <p>AI productivity suite for students: 3D portfolio generator deploying to GitHub Pages, AI resume builder, job finder, academic researcher, viral LinkedIn post generator. <em>Google AI Studio, Generative AI.</em></p></div>
+
+    <div class="project"><span class="pname">GSK Financial Chatbot, Cognizant.</span> <p>AI financial assistant for GlaxoSmithKline handling budget queries and report summarisation. Built on Azure OpenAI with a RAG backbone. <strong>Reduced manual queries by 60 percent.</strong></p></div>
+
+    <div class="project"><span class="pname">Audit Assist, Cognizant.</span> <p>Generative AI RAG platform for audit log analysis, compliance summarisation and downloadable Excel insights with an integrated chatbot. <strong>25 percent faster reviews, 50 percent less manual analysis.</strong> Recognised internally for innovation in risk management.</p></div>
+
+    <h2>Education</h2>
+
+    <div class="role-line">
+      <span class="role">MBA, Business Administration (Scholarship Recipient)</span>
+      <span class="date">September 2025 to September 2026 (Expected)</span>
+    </div>
+    <div class="meta-line"><span>Leeds University Business School, Leeds, United Kingdom</span></div>
+
+    <div class="role-line">
+      <span class="role">B.Tech, Computer Science and Engineering</span>
+      <span class="date">August 2017 to July 2021</span>
+    </div>
+    <div class="meta-line"><span>Bharati Vidyapeeth College of Engineering (BVCOE), New Delhi, India</span></div>
+
+    <h2>Certifications and Awards</h2>
+    <ul>
+      <li>Databricks Certified Data Engineer Associate</li>
+      <li>WorldQuant University Certified Python Programmer</li>
+      <li>Coursera Specialisations in Generative AI and Applied Machine Learning</li>
+      <li>Leeds University Business School MBA Scholarship Recipient (2025)</li>
+    </ul>
+
+    <h2>Leadership and Activities</h2>
+    <ul>
+      <li><strong>Artist Management:</strong> Managed and scaled two independent music artists, securing national television appearances, brand partnerships and record label deals.</li>
+      <li><strong>Mentoring:</strong> Mentored peers in AI implementation, automation workflows and prompt engineering.</li>
+      <li><strong>Sports:</strong> Active football player and hiker.</li>
+    </ul>
+
+  </div>
+
+  <script>
+    document.getElementById('printBtn').addEventListener('click', () => window.print());
+    document.getElementById('downloadBtn').addEventListener('click', () => {
+      const el = document.getElementById('resume');
+      const opt = {
+        margin: 0,
+        filename: 'Mohit_Kumar_Resume.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2, useCORS: true, backgroundColor: '#ffffff' },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+        pagebreak: { mode: ['css', 'legacy'] }
+      };
+      html2pdf().set(opt).from(el).save();
+    });
+  </script>
+</body>
+</html>

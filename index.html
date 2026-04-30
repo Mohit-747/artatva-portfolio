@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohit Kumar | AI Engineer & MBA Candidate</title>
+  <meta name="description" content="Portfolio of Mohit Kumar. Generative AI Engineer with 5 years of experience, MBA candidate at Leeds University Business School." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Cursor glow -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- Background gradient blobs -->
+  <div class="bg-blobs" aria-hidden="true">
+    <div class="blob blob--1"></div>
+    <div class="blob blob--2"></div>
+    <div class="blob blob--3"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <a href="#hero" class="nav__logo">MK</a>
+    <div class="nav__links">
+      <a href="#about" class="nav__link">About</a>
+      <a href="#experience" class="nav__link">Experience</a>
+      <a href="#artatva" class="nav__link">Artatva</a>
+      <a href="#projects" class="nav__link">Projects</a>
+      <a href="#skills" class="nav__link">Skills</a>
+      <a href="#contact" class="nav__link">Contact</a>
+    </div>
+    <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" class="mobile-menu__link">About</a>
+    <a href="#experience" class="mobile-menu__link">Experience</a>
+    <a href="#artatva" class="mobile-menu__link">Artatva</a>
+    <a href="#projects" class="mobile-menu__link">Projects</a>
+    <a href="#skills" class="mobile-menu__link">Skills</a>
+    <a href="#contact" class="mobile-menu__link">Contact</a>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="hero__bg">
+      <canvas id="heroCanvas"></canvas>
+    </div>
+    <div class="hero__content">
+      <p class="hero__greeting reveal-text">Hello, I'm</p>
+      <h1 class="hero__name">
+        <span class="reveal-text">Mohit</span>
+        <span class="reveal-text gradient-text">Kumar</span>
+      </h1>
+      <p class="hero__title reveal-text">Generative AI Engineer, MBA Candidate</p>
+      <p class="hero__subtitle reveal-text">I build AI systems that move real numbers. Five years across enterprise AI at Cognizant and Mehtadology, with a focus on multi-agent automation and the business case behind it.</p>
+      <div class="hero__cta reveal-text">
+        <a href="#projects" class="btn btn--primary">View My Work</a>
+        <a href="assets/Mohit_Kumar_Resume.html" download="Mohit_Kumar_Resume.html" target="_blank" class="btn btn--outline" id="cvButton">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download CV
+        </a>
+      </div>
+    </div>
+    <div class="hero__scroll">
+      <div class="hero__scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- Marquee strip -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>Generative AI</span><span>&bull;</span>
+      <span>Multi-Agent Systems</span><span>&bull;</span>
+      <span>RAG Pipelines</span><span>&bull;</span>
+      <span>Azure OpenAI</span><span>&bull;</span>
+      <span>Next.js</span><span>&bull;</span>
+      <span>Python</span><span>&bull;</span>
+      <span>LangGraph</span><span>&bull;</span>
+      <span>Databricks</span><span>&bull;</span>
+      <span>Streamlit</span><span>&bull;</span>
+      <span>FastAPI</span><span>&bull;</span>
+      <span>TypeScript</span><span>&bull;</span>
+      <span>Supabase</span><span>&bull;</span>
+      <span>Generative AI</span><span>&bull;</span>
+      <span>Multi-Agent Systems</span><span>&bull;</span>
+      <span>RAG Pipelines</span><span>&bull;</span>
+      <span>Azure OpenAI</span><span>&bull;</span>
+      <span>Next.js</span><span>&bull;</span>
+      <span>Python</span><span>&bull;</span>
+      <span>LangGraph</span><span>&bull;</span>
+      <span>Databricks</span><span>&bull;</span>
+    </div>
+  </div>
+
+  <!-- Lamp divider -->
+  <section class="lamp" id="lampDivider" aria-hidden="true">
+    <div class="lamp__stage">
+      <div class="lamp__cone lamp__cone--left">
+        <div class="lamp__cone-mask lamp__cone-mask--bottom"></div>
+        <div class="lamp__cone-mask lamp__cone-mask--right"></div>
+      </div>
+      <div class="lamp__cone lamp__cone--right">
+        <div class="lamp__cone-mask lamp__cone-mask--bottom"></div>
+        <div class="lamp__cone-mask lamp__cone-mask--left"></div>
+      </div>
+      <div class="lamp__floor"></div>
+      <div class="lamp__blur"></div>
+      <div class="lamp__core-glow"></div>
+      <div class="lamp__hot-spot"></div>
+      <div class="lamp__bar"></div>
+      <div class="lamp__top-mask"></div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about section" id="about">
+    <div class="container">
+      <span class="section__numeral">01</span>
+
+      <!-- Intro card sitting right under the lamp glow -->
+      <div class="about__intro-card reveal-up">
+        <div class="about__intro-glow" aria-hidden="true"></div>
+        <div class="about__intro-photo">
+          <img src="assets/headshot.jpg" alt="Mohit Kumar" id="headshot" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+          <div class="about__photo-fallback" style="display:none;"><span>MK</span></div>
+        </div>
+        <div class="about__intro-text">
+          <span class="about__eyebrow">A bit about</span>
+          <h2 class="about__intro-title">About Me</h2>
+          <p class="about__intro-tag">AI Engineer. MBA candidate. Builder of things that ship.</p>
+        </div>
+      </div>
+
+      <div class="about__grid">
+        <div class="about__text reveal-up">
+          <p>I'm an AI Engineer with five years of experience and an MBA candidacy at Leeds University Business School. I sit at the intersection of deep technical execution and strategic business thinking. The goal is simple: ship AI that creates measurable value, not demos.</p>
+          <p>At Cognizant I built AI products for GSK, Merck and other UK enterprises. Outside the day job, I've been founding and shipping my own ventures, from a compliance-first marketplace to a multi-agent consulting platform. The MBA is the bridge that makes both halves talk to each other.</p>
+          <p>If a model isn't reducing a number that the CFO cares about, it's not finished.</p>
+        </div>
+        <div class="about__stats">
+          <div class="stat reveal-up">
+            <span class="stat__number" data-target="5">0</span>
+            <span class="stat__label">Years Experience</span>
+          </div>
+          <div class="stat reveal-up">
+            <span class="stat__number" data-target="8">0</span>
+            <span class="stat__label">Projects Shipped</span>
+          </div>
+          <div class="stat reveal-up">
+            <span class="stat__number" data-target="2">0</span>
+            <span class="stat__label">Countries</span>
+          </div>
+          <div class="stat reveal-up">
+            <span class="stat__number" data-target="100">0</span><span class="stat__plus">+</span>
+            <span class="stat__label">AI Agents in Production</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mission quote -->
+      <blockquote class="mission reveal-up">
+        <span class="mission__mark">&ldquo;</span>
+        <p>The best AI products come from understanding the technology and the business problem in equal measure. That is what I optimise for.</p>
+      </blockquote>
+
+      <!-- Worked-with strip -->
+      <div class="clients reveal-up">
+        <span class="clients__label">Clients I've delivered AI for</span>
+        <div class="clients__row">
+          <div class="client-badge">GSK</div>
+          <div class="client-badge">Merck</div>
+          <div class="client-badge">University of Leeds</div>
+          <div class="client-badge">Cognizant AI Studio</div>
+          <div class="client-badge">Mehtadology</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section class="experience section" id="experience">
+    <div class="container">
+      <span class="section__numeral">02</span>
+      <h2 class="section__title reveal-up">Experience</h2>
+      <div class="timeline">
+        <div class="timeline__item reveal-up" data-side="right">
+          <div class="timeline__dot"></div>
+          <div class="timeline__card">
+            <span class="timeline__date">Sep 2025, Present</span>
+            <h3 class="timeline__role">MBA Candidate <span class="timeline__scholarship">Scholarship Recipient</span></h3>
+            <p class="timeline__company">Leeds University Business School, UK</p>
+            <p class="timeline__desc">Pairing AI engineering with strategy, finance and operations. Building ventures alongside the coursework.</p>
+          </div>
+        </div>
+        <div class="timeline__item reveal-up" data-side="left">
+          <div class="timeline__dot"></div>
+          <div class="timeline__card">
+            <span class="timeline__date">Oct 2023, Aug 2025</span>
+            <h3 class="timeline__role">Associate Data Scientist</h3>
+            <p class="timeline__company">Cognizant AI Studio, London</p>
+            <ul class="timeline__list">
+              <li>Delivered AI applications for GSK and Merck</li>
+              <li>Designed a scalable RAG framework, 45 percent latency improvement</li>
+              <li>Integrated Azure OpenAI, Databricks and Azure AI Search</li>
+              <li>Led the API Test Case Builder team, 30 percent QA reduction</li>
+            </ul>
+          </div>
+        </div>
+        <div class="timeline__item reveal-up" data-side="right">
+          <div class="timeline__dot"></div>
+          <div class="timeline__card">
+            <span class="timeline__date">Jul 2021, Oct 2023</span>
+            <h3 class="timeline__role">Data Analyst</h3>
+            <p class="timeline__company">Cognizant, New Delhi</p>
+            <ul class="timeline__list">
+              <li>Promoted from Intern to Analyst inside the first year</li>
+              <li>Built a prompt-based document generator covering 50 plus document types</li>
+              <li>Optimised data pipelines on AWS Lambda and CloudWatch</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ARTATVA STEALTH SECTION ============ -->
+  <section class="artatva section" id="artatva">
+    <div class="container">
+      <div class="artatva__hero reveal-up">
+        <div class="artatva__badge">
+          <span class="artatva__pulse"></span>
+          Stealth Mode
+        </div>
+        <h2 class="artatva__title">Artatva</h2>
+        <p class="artatva__tagline">Compliance-first artist booking marketplace, built AI-native from day one.</p>
+        <p class="artatva__vision">A platform where every booking flow has DBS verification, PLI insurance and contract protection running underneath, and where every operational layer (marketing, finance, compliance, HR, legal) is handled by autonomous AI agents.</p>
+      </div>
+
+      <div class="artatva__why">
+        <h3 class="artatva__subhead reveal-up">Why Artatva is different</h3>
+        <div class="artatva__why-grid">
+          <div class="why-card reveal-up">
+            <div class="why-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h4>Compliance-First Architecture</h4>
+            <p>DBS verification, PLI insurance and contract protection are baked into the booking flow. They are not bolted on afterwards.</p>
+          </div>
+          <div class="why-card reveal-up">
+            <div class="why-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            </div>
+            <h4>End-to-End Platform</h4>
+            <p>Three single-page apps for artist, client and admin, a Fastify API layer and background workers, all in a Turbo monorepo.</p>
+          </div>
+          <div class="why-card reveal-up">
+            <div class="why-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v6m0 10v6M4.22 4.22l4.24 4.24m7.08 7.08l4.24 4.24M1 12h6m10 0h6M4.22 19.78l4.24-4.24m7.08-7.08l4.24-4.24"/></svg>
+            </div>
+            <h4>AI-Native Operations</h4>
+            <p>Every operational function has an autonomous agent behind it. Marketing, finance, compliance, HR and legal all driven by AI.</p>
+          </div>
+          <div class="why-card reveal-up">
+            <div class="why-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <h4>Founded and Built Solo</h4>
+            <p>Architecture, product direction and execution all owned end to end. No outsourced code, no off-the-shelf scaffolding.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="artatva__roadmap">
+        <h3 class="artatva__subhead reveal-up">Roadmap</h3>
+        <div class="roadmap">
+          <div class="phase phase--done reveal-up">
+            <div class="phase__status">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <span class="phase__label">Phase 1</span>
+            <h4>Marketplace Core</h4>
+            <p>3 SPAs, API, workers, compliance integrations.</p>
+            <span class="phase__date">Shipped, Apr 2026</span>
+          </div>
+          <div class="phase phase--active reveal-up">
+            <div class="phase__status phase__status--active"></div>
+            <span class="phase__label">Phase 2</span>
+            <h4>Marketing Agents</h4>
+            <p>Autonomous content, campaigns and lead capture.</p>
+            <span class="phase__date">Next 20 to 30 days</span>
+          </div>
+          <div class="phase phase--active reveal-up">
+            <div class="phase__status phase__status--active"></div>
+            <span class="phase__label">Phase 3</span>
+            <h4>Finance Agents</h4>
+            <p>Invoicing, reconciliation and payout automation.</p>
+            <span class="phase__date">Next 20 to 30 days</span>
+          </div>
+          <div class="phase phase--active reveal-up">
+            <div class="phase__status phase__status--active"></div>
+            <span class="phase__label">Phase 4</span>
+            <h4>Compliance Agents</h4>
+            <p>DBS, PLI and policy checks, fully automated.</p>
+            <span class="phase__date">Next 20 to 30 days</span>
+          </div>
+          <div class="phase phase--active reveal-up">
+            <div class="phase__status phase__status--active"></div>
+            <span class="phase__label">Phase 5</span>
+            <h4>HR and Legal Agents</h4>
+            <p>Contracts, onboarding and dispute triage on autopilot.</p>
+            <span class="phase__date">Next 20 to 30 days</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="artatva__stack reveal-up">
+        <span class="artatva__stack-label">Built on</span>
+        <div class="artatva__stack-row">
+          <span>Next.js 14</span>
+          <span>TypeScript</span>
+          <span>Supabase</span>
+          <span>Fastify</span>
+          <span>Turbo Monorepo</span>
+          <span>Multi-Agent AI</span>
+          <span>Tailwind CSS</span>
+        </div>
+      </div>
+
+      <div class="artatva__cta reveal-up">
+        <p>Currently in stealth. Happy to walk through the work in private.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="projects section" id="projects">
+    <div class="container">
+      <span class="section__numeral">03</span>
+      <h2 class="section__title reveal-up">Projects</h2>
+      <p class="section__subtitle reveal-up">A working sample of what I've shipped, in the UK and before.</p>
+
+      <!-- Featured projects -->
+      <div class="projects__featured">
+
+        <article class="project-card project-card--featured reveal-up" data-category="ai">
+          <div class="project-card__glow"></div>
+          <div class="project-card__header">
+            <span class="project-card__tag">Agentic AI</span>
+            <span class="project-card__tag">Consulting</span>
+          </div>
+          <h3 class="project-card__title">Mehtadology Consulting App</h3>
+          <p class="project-card__desc">An end-to-end agentic AI workflow that runs the consulting pipeline. Specialised agents (Validator, Deck Producer, QA and others) sit under a Chief Orchestrator that manages the entire delivery lifecycle without manual hand-offs.</p>
+          <div class="project-card__features">
+            <span>Chief Orchestrator</span>
+            <span>Validator Agent</span>
+            <span>Deck Producer</span>
+            <span>QA Agent</span>
+            <span>Autonomous Pipeline</span>
+          </div>
+          <div class="project-card__tech">
+            <span>Python</span>
+            <span>Multi-Agent Systems</span>
+            <span>LangGraph</span>
+            <span>Generative AI</span>
+          </div>
+        </article>
+
+        <article class="project-card project-card--featured reveal-up" data-category="fullstack">
+          <div class="project-card__glow"></div>
+          <div class="project-card__header">
+            <span class="project-card__tag">Marketing</span>
+            <span class="project-card__tag">Analytics</span>
+          </div>
+          <h3 class="project-card__title">Mehtadology Marketing Dashboard</h3>
+          <p class="project-card__desc">A marketing command centre that goes beyond CRM. Pulls analytics from every social platform, pushes content back out, captures leads and tracks the full sales funnel through to conversion.</p>
+          <div class="project-card__features">
+            <span>Multi-Platform Analytics</span>
+            <span>Content Push</span>
+            <span>Lead Capture</span>
+            <span>Sales Funnel</span>
+            <span>Conversion Tracking</span>
+          </div>
+          <div class="project-card__tech">
+            <span>Next.js</span>
+            <span>TypeScript</span>
+            <span>Analytics APIs</span>
+            <span>Full-Stack</span>
+          </div>
+        </article>
+
+        <article class="project-card project-card--featured reveal-up" data-category="ai">
+          <div class="project-card__glow"></div>
+          <div class="project-card__header">
+            <span class="project-card__tag">AI Suite</span>
+            <span class="project-card__tag">Google AI Studio</span>
+          </div>
+          <h3 class="project-card__title">Studex</h3>
+          <p class="project-card__desc">An AI-powered productivity suite for students, built on Google AI Studio. Generates a customisable 3D portfolio that ships straight to GitHub Pages, builds a resume, finds matching jobs, runs academic research and writes LinkedIn posts that actually travel.</p>
+          <div class="project-card__features">
+            <span>3D Portfolio Generator</span>
+            <span>AI Resume Builder</span>
+            <span>Job Finder</span>
+            <span>Academic Researcher</span>
+            <span>LinkedIn Post Generator</span>
+          </div>
+          <div class="project-card__tech">
+            <span>Google AI Studio</span>
+            <span>Generative AI</span>
+            <span>Three.js</span>
+            <span>GitHub Pages</span>
+          </div>
+        </article>
+
+        <article class="project-card project-card--featured reveal-up" data-category="ai">
+          <div class="project-card__glow"></div>
+          <div class="project-card__header">
+            <span class="project-card__tag">Multi-Agent</span>
+            <span class="project-card__tag">Sustainability</span>
+          </div>
+          <h3 class="project-card__title">LUBS Net Zero Command Center</h3>
+          <p class="project-card__desc">A multi-agent carbon accounting dashboard for Leeds University Business School. Six agents cover data ingestion, Scope 1 to 3 emission calculations (LCA, LCI, LCIA), scenario modelling, anomaly detection and recommendations.</p>
+          <div class="project-card__features">
+            <span>6 AI Agents</span>
+            <span>Scope 1 to 3</span>
+            <span>Scenario Modelling</span>
+            <span>Anomaly Detection</span>
+            <span>Real Building Data</span>
+          </div>
+          <div class="project-card__tech">
+            <span>Python</span>
+            <span>Streamlit</span>
+            <span>Multi-Agent</span>
+            <span>Plotly</span>
+          </div>
+        </article>
+
+        <article class="project-card project-card--featured reveal-up" data-category="fullstack">
+          <div class="project-card__glow"></div>
+          <div class="project-card__header">
+            <span class="project-card__tag">Full-Stack</span>
+            <span class="project-card__tag">Automation</span>
+          </div>
+          <h3 class="project-card__title">AI Job Search Application</h3>
+          <p class="project-card__desc">A job search platform that builds the CV, parses the PDF, and uses Playwright to drive applications across job boards. Built on Next.js 16 and React 19 with SQLite for local persistence.</p>
+          <div class="project-card__features">
+            <span>AI CV Builder</span>
+            <span>PDF Parsing</span>
+            <span>Web Automation</span>
+            <span>Job Matching</span>
+          </div>
+          <div class="project-card__tech">
+            <span>Next.js 16</span>
+            <span>React 19</span>
+            <span>TypeScript</span>
+            <span>Playwright</span>
+            <span>SQLite</span>
+          </div>
+        </article>
+      </div>
+
+      <!-- Cognizant projects -->
+      <h3 class="projects__section-label reveal-up">Enterprise AI at Cognizant</h3>
+      <div class="projects__grid">
+        <article class="project-card project-card--compact reveal-up">
+          <h4 class="project-card__title">GSK Financial Chatbot</h4>
+          <p class="project-card__desc">An AI financial assistant for GSK that handles budget questions, retrieves data on demand and summarises financial reports across departments.</p>
+          <div class="project-card__impact">
+            <span class="impact-stat">60% fewer manual queries</span>
+            <span class="impact-stat">Cross-department access</span>
+          </div>
+          <div class="project-card__tech"><span>Azure OpenAI</span><span>RAG</span><span>Python</span></div>
+        </article>
+        <article class="project-card project-card--compact reveal-up">
+          <h4 class="project-card__title">Audit Assist</h4>
+          <p class="project-card__desc">A Generative AI RAG platform that reads audit logs, summarises compliance data and exports audit insights, with a chatbot on top for finance audit questions.</p>
+          <div class="project-card__impact">
+            <span class="impact-stat">25% faster reviews</span>
+            <span class="impact-stat">50% less manual analysis</span>
+          </div>
+          <div class="project-card__tech"><span>RAG</span><span>Generative AI</span><span>Streamlit</span></div>
+        </article>
+        <article class="project-card project-card--compact reveal-up">
+          <h4 class="project-card__title">API Test Case Builder</h4>
+          <p class="project-card__desc">An automation that turns Swagger specifications into BDD-derived test cases across testing frameworks and languages, wired into CI/CD.</p>
+          <div class="project-card__impact">
+            <span class="impact-stat">100+ hours saved per year</span>
+            <span class="impact-stat">Standardised QA</span>
+          </div>
+          <div class="project-card__tech"><span>Python</span><span>Swagger</span><span>BDD</span><span>CI/CD</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="skills section" id="skills">
+    <div class="container">
+      <span class="section__numeral">04</span>
+      <h2 class="section__title reveal-up">Skills and Tools</h2>
+      <div class="skills__grid">
+        <div class="skill-group reveal-up">
+          <h3 class="skill-group__title">AI and ML</h3>
+          <div class="skill-group__items">
+            <span class="skill-chip">Generative AI</span>
+            <span class="skill-chip">RAG Pipelines</span>
+            <span class="skill-chip">LLMs</span>
+            <span class="skill-chip">Multi-Agent Systems</span>
+            <span class="skill-chip">Neural Networks</span>
+            <span class="skill-chip">Prompt Engineering</span>
+            <span class="skill-chip">LangGraph</span>
+          </div>
+        </div>
+        <div class="skill-group reveal-up">
+          <h3 class="skill-group__title">Programming</h3>
+          <div class="skill-group__items">
+            <span class="skill-chip">Python</span>
+            <span class="skill-chip">TypeScript</span>
+            <span class="skill-chip">JavaScript</span>
+            <span class="skill-chip">Next.js</span>
+            <span class="skill-chip">React</span>
+            <span class="skill-chip">Streamlit</span>
+            <span class="skill-chip">FastAPI</span>
+            <span class="skill-chip">Flask</span>
+          </div>
+        </div>
+        <div class="skill-group reveal-up">
+          <h3 class="skill-group__title">Cloud and DevOps</h3>
+          <div class="skill-group__items">
+            <span class="skill-chip">Azure OpenAI</span>
+            <span class="skill-chip">Azure Databricks</span>
+            <span class="skill-chip">Azure AI Search</span>
+            <span class="skill-chip">AWS</span>
+            <span class="skill-chip">Supabase</span>
+            <span class="skill-chip">Docker</span>
+            <span class="skill-chip">Git</span>
+          </div>
+        </div>
+        <div class="skill-group reveal-up">
+          <h3 class="skill-group__title">Data and Tools</h3>
+          <div class="skill-group__items">
+            <span class="skill-chip">Playwright</span>
+            <span class="skill-chip">HuggingFace</span>
+            <span class="skill-chip">Tailwind CSS</span>
+            <span class="skill-chip">Plotly</span>
+            <span class="skill-chip">JIRA</span>
+            <span class="skill-chip">Google AI Studio</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section class="education section" id="education">
+    <div class="container">
+      <span class="section__numeral">05</span>
+      <h2 class="section__title reveal-up">Education</h2>
+      <div class="education__grid">
+        <div class="edu-card reveal-up">
+          <div class="edu-card__badge">MBA</div>
+          <h3 class="edu-card__title">Business Administration</h3>
+          <p class="edu-card__school">Leeds University Business School, UK</p>
+          <span class="edu-card__date">Sep 2025 to Sep 2026 (Expected)</span>
+          <span class="edu-card__tag">Scholarship Recipient</span>
+        </div>
+        <div class="edu-card reveal-up">
+          <div class="edu-card__badge">B.Tech</div>
+          <h3 class="edu-card__title">Computer Science and Engineering</h3>
+          <p class="edu-card__school">BVCOE, New Delhi, India</p>
+          <span class="edu-card__date">Aug 2017 to Jul 2021</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <span class="section__numeral">06</span>
+      <h2 class="section__title reveal-up">Get in Touch</h2>
+      <p class="section__subtitle reveal-up">Working on something interesting, or want to talk about any of the work above?</p>
+      <div class="contact__links reveal-up">
+        <a href="mailto:mohit.xtreme1@gmail.com" class="contact__link">
+          <div class="contact__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 4 10 8 10-8"/></svg>
+          </div>
+          <span>mohit.xtreme1@gmail.com</span>
+        </a>
+        <a href="https://linkedin.com/in/Mohit747" target="_blank" class="contact__link">
+          <div class="contact__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </div>
+          <span>LinkedIn</span>
+        </a>
+        <a href="https://github.com/Mohit-747" target="_blank" class="contact__link">
+          <div class="contact__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          </div>
+          <span>GitHub</span>
+        </a>
+        <a href="tel:+447899255443" class="contact__link">
+          <div class="contact__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <span>+44 7899 255443</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 Mohit Kumar. Built with intent.</p>
+  </footer>
+
+  <!-- Chatbot widget -->
+  <div class="chat-nudge" id="chatNudge" aria-hidden="true">
+    <button class="chat-nudge__close" id="chatNudgeClose" aria-label="Dismiss">&times;</button>
+    <div class="chat-nudge__avatar">MK</div>
+    <div class="chat-nudge__body">
+      <p class="chat-nudge__title">Curious about Mohit?</p>
+      <p class="chat-nudge__text">Ask me anything. I know his projects, his football takes, even Artatva.</p>
+    </div>
+    <div class="chat-nudge__arrow"></div>
+  </div>
+  <button class="chat-fab" id="chatFab" aria-label="Ask Mohit">
+    <div class="chat-fab__pulse"></div>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <span class="chat-fab__tooltip">Ask Mohit</span>
+  </button>
+
+  <div class="chat-panel" id="chatPanel" aria-hidden="true">
+    <div class="chat-panel__header">
+      <div class="chat-panel__avatar">MK</div>
+      <div>
+        <h3 class="chat-panel__title">Ask Mohit</h3>
+        <span class="chat-panel__status"><span class="status-dot"></span> AI assistant, with British humour</span>
+      </div>
+      <button class="chat-panel__close" id="chatClose" aria-label="Close">&times;</button>
+    </div>
+    <div class="chat-panel__messages" id="chatMessages">
+      <div class="chat-msg chat-msg--bot">
+        <div class="chat-msg__bubble">
+          <p>Right then. Mohit's not in the room, so you've got me. Ask about the projects, Artatva, the MBA, or what's on the telly. Try not to be boring.</p>
+        </div>
+      </div>
+    </div>
+    <div class="chat-panel__suggestions" id="chatSuggestions">
+      <button class="chat-suggestion">Tell me about Artatva</button>
+      <button class="chat-suggestion">Most impressive project?</button>
+      <button class="chat-suggestion">Why AI plus an MBA?</button>
+      <button class="chat-suggestion">Messi or Ronaldo?</button>
+    </div>
+    <form class="chat-panel__form" id="chatForm">
+      <input type="text" id="chatInput" placeholder="Ask anything about Mohit..." autocomplete="off" />
+      <button type="submit" aria-label="Send">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
+    </form>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/chat.js"></script>
+</body>
+</html>
